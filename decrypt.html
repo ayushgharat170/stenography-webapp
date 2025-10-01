@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract & Decrypt - SecureStego</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <a href="home.html" class="back-home" title="Back to Home">← Home</a>
+        <div class="nav-brand" onclick="navigateHome()">
+            <span>🔐</span> Hide&Lock
+        </div>
+        <div class="nav-links">
+            <a href="encrypt.html">Encrypt</a>
+            <a href="decrypt.html" class="active">Decrypt</a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>🔓 Extract & Decrypt Message</h1>
+            <p>Reveal hidden messages from steganographic images</p>
+        </div>
+
+        <div class="form-container">
+            <div class="input-section">
+                <label>📁 Select Encoded Image</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="extractInput" accept="image/*">
+                    <div class="file-input-display">Choose Encoded Image</div>
+                </div>
+                <div id="extractPreview" class="image-preview"></div>
+            </div>
+
+            <div class="input-section">
+                <label>🔑 Decryption Password</label>
+                <div class="password-container">
+                    <input type="password" id="extractKey" placeholder="Enter the same password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('extractKey')">👁️</button>
+                </div>
+            </div>
+
+            <button onclick="extractMessage()" class="action-btn">
+                🔍 Extract & Decrypt Message
+            </button>
+
+            <div id="decodeSteps" class="process-steps"></div>
+            <div id="extractedMessage" class="result-section"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

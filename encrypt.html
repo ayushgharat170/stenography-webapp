@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt & Hide - SecureStego</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <a href="home.html" class="back-home" title="Back to Home">← Home</a>
+        <div class="nav-brand" onclick="navigateHome()">
+            <span>🔐</span> Hide&Lock
+        </div>
+        <div class="nav-links">
+            <a href="encrypt.html" class="active">Encrypt</a>
+            <a href="decrypt.html">Decrypt</a>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>🔒 Encrypt & Hide Message</h1>
+            <p>Securely embed your secret message into an image</p>
+        </div>
+
+        <div class="form-container">
+            <div class="input-section">
+                <label>📁 Select Cover Image</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <div class="file-input-display">Choose Image File</div>
+                </div>
+                <div id="imagePreview" class="image-preview"></div>
+            </div>
+
+            <div class="input-section">
+                <label>💬 Secret Message</label>
+                <textarea id="messageInput" placeholder="Enter your confidential message..."></textarea>
+                <div class="char-count">Characters: <span id="charCount">0</span></div>
+            </div>
+
+            <div class="input-section">
+                <label>🔑 Encryption Password</label>
+                <div class="password-container">
+                    <input type="password" id="keyInput" placeholder="Strong password (min 8 chars)">
+                    <button type="button" class="toggle-password" onclick="togglePassword('keyInput')">👁️</button>
+                </div>
+                <div class="strength-meter">
+                    <div id="strengthBar"></div>
+                    <span id="strengthText">Password Strength</span>
+                </div>
+            </div>
+
+            <button onclick="hideMessage()" id="encodeBtn" class="action-btn" disabled>
+                🔐 Encrypt & Hide Message
+            </button>
+
+            <div id="processSteps" class="process-steps"></div>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div id="downloadLink" class="download-section"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
