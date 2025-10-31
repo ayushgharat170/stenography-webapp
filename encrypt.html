@@ -17,7 +17,6 @@
         <div class="nav-links">
             <a href="encrypt.html" class="active">Encrypt</a>
             <a href="decrypt.html">Decrypt</a>
-
         </div>
     </nav>
 
@@ -38,12 +37,43 @@
             </div>
 
             <div class="input-section">
+                <label>📝 Content Type</label>
+                <div class="content-type-cards">
+                    <div class="content-card active" data-type="text">
+                        <div class="card-icon">💬</div>
+                        <h3>Text Message</h3>
+                        <p>Hide secret text</p>
+                    </div>
+                    <div class="content-card" data-type="file">
+                        <div class="card-icon">📄</div>
+                        <h3>File</h3>
+                        <p>Hide any file type</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-section" id="textSection">
                 <label>💬 Secret Message</label>
                 <textarea id="messageInput" placeholder="Enter your confidential message..."></textarea>
                 <div class="char-count">Characters: <span id="charCount">0</span></div>
             </div>
 
+            <div class="input-section" id="fileSection" style="display: none;">
+                <label>📄 Select File to Hide</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="secretFileInput">
+                    <div class="file-input-display">Choose File to Hide</div>
+                </div>
+            </div>
+
             <div class="input-section">
+                <label>
+                    <input type="checkbox" id="usePassword" checked>
+                    🔐 Use Password Protection
+                </label>
+            </div>
+
+            <div class="input-section" id="passwordSection">
                 <label>🔑 Encryption Password</label>
                 <div class="password-container">
                     <input type="password" id="keyInput" placeholder="Strong password (min 8 chars)">
@@ -55,8 +85,8 @@
                 </div>
             </div>
 
-            <button onclick="hideMessage()" id="encodeBtn" class="action-btn" disabled>
-                🔐 Encrypt & Hide Message
+            <button onclick="hideContent()" id="encodeBtn" class="action-btn" disabled>
+                🔐 Hide Content
             </button>
 
             <div id="processSteps" class="process-steps"></div>
