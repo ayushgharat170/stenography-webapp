@@ -17,7 +17,6 @@
         <div class="nav-links">
             <a href="encrypt.html">Encrypt</a>
             <a href="decrypt.html" class="active">Decrypt</a>
-
         </div>
     </nav>
 
@@ -38,6 +37,13 @@
             </div>
 
             <div class="input-section">
+                <label>
+                    <input type="checkbox" id="hasPassword" checked>
+                    🔐 Content is Password Protected
+                </label>
+            </div>
+
+            <div class="input-section" id="passwordExtractSection">
                 <label>🔑 Decryption Password</label>
                 <div class="password-container">
                     <input type="password" id="extractKey" placeholder="Enter the same password">
@@ -45,8 +51,8 @@
                 </div>
             </div>
 
-            <button onclick="extractMessage()" class="action-btn">
-                🔍 Extract & Decrypt Message
+            <button onclick="extractContent()" class="action-btn">
+                🔍 Extract Content
             </button>
 
             <div id="decodeSteps" class="process-steps"></div>
